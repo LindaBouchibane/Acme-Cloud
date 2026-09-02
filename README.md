@@ -123,7 +123,7 @@ Le nom de secret `PRIVATE_APP_ACCESS_TOKEN` est réservé par HubSpot et rejeté
 
 L'envoi d'emails d'invitation membership est bloqué sur ce portail. Le message HubSpot est explicite : *"A custom domain must be connected to send invite emails."* Le portail utilisant `hs-sites-eu1.com`, impossible d'envoyer une invitation sans domaine personnalisé.
 
-C'est une limitation connue et documentée des portails sandbox :
+C'est une limitation documentée des portails sandbox :
 - https://community.hubspot.com/t5/CMS-Development/Sandbox-testing-private-content-membership/td-p/635204
 - https://knowledge.hubspot.com/website-pages/manage-private-content-settings
 
