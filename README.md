@@ -141,4 +141,4 @@ Template HubL
                     └── @hubspot/api-client → CRM HubSpot
 ```
 
-**Bonus couverts :** layout commun (header/nav/footer), TypeScript, composants UI réutilisables (Button, Input, StatusBanner), messages d'erreur lisibles côté UI, fields CMS éditables sur la page Accueil (titre, sous-titre, 3 arguments, CTA).
+
