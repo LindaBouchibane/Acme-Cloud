@@ -117,11 +117,7 @@ Content-Type: application/json
 
 ## Points bloquants
 
-### Token private app
-
-Le portail ne disposait pas d'une private app dédiée. J'ai utilisé le token de l'app **Digitalisync**, déjà présente sur le portail sans activité en cours (webhooks pausés sur localhost, aucun projet attaché). Aymen Neguez a été informé par email.
-
-À noter : le nom de secret `PRIVATE_APP_ACCESS_TOKEN` est réservé par HubSpot et rejeté à l'upload du projet — j'ai donc utilisé `HS_ACCESS_TOKEN` à la place.
+Le nom de secret `PRIVATE_APP_ACCESS_TOKEN` est réservé par HubSpot et rejeté à l'upload du projet — j'ai donc utilisé `HS_ACCESS_TOKEN` à la place.
 
 ### Test end-to-end de Mon compte
 
