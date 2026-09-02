@@ -1,0 +1,29 @@
+{
+  "uid": "acme_cloud_app",
+  "type": "app",
+  "config": {
+    "name": "Acme Cloud App",
+    "description": "Serverless functions for the Acme Cloud portal",
+    "distribution": "private",
+    "auth": {
+      "type": "static",
+      "requiredScopes": [
+        "crm.objects.contacts.read",
+        "crm.objects.contacts.write"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": ["https://api.hubapi.com"],
+      "iframe": [],
+      "img": []
+    },
+    "support": {
+      "supportEmail": "",
+      "documentationUrl": "",
+      "supportUrl": "",
+      "supportPhone": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "acme-cloud-functions",
+  "version": "1.0.0",
+  "description": "Serverless functions for Acme Cloud",
+  "main": "updateProfile.js",
+  "dependencies": {
+    "@hubspot/api-client": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

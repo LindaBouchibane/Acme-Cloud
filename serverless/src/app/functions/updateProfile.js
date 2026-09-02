@@ -31,7 +31,7 @@ exports.main = async (context, sendResponse) => {
   }
 
   const client = new hubspot.Client({
-    accessToken: process.env.PRIVATE_APP_ACCESS_TOKEN,
+    accessToken: process.env.HS_ACCESS_TOKEN,
   });
 
   try {

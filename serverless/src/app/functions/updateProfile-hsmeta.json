@@ -1,0 +1,12 @@
+{
+  "uid": "update_profile",
+  "type": "app-function",
+  "config": {
+    "entrypoint": "/app/functions/updateProfile.js",
+    "endpoint": {
+      "path": "/updateProfile",
+      "methods": ["POST"]
+    },
+    "secretKeys": ["HS_ACCESS_TOKEN"]
+  }
+}

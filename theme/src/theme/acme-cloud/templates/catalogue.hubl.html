@@ -1,0 +1,12 @@
+{% extends '../layouts/base.hubl.html' %}
+{% block body %}
+
+{# Data is fetched client-side via the CatalogueIsland once the custom object is created #}
+<div class="page-catalogue">
+  {% module "catalogue_list"
+    path="../components/modules/CatalogueList",
+    label="Liste des offres"
+  %}
+</div>
+
+{% endblock %}

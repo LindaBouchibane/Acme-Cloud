@@ -1,9 +1,0 @@
-{% react_module "Profile" %}
-  {% react_prop "contactId" value="{{ request.contact.vid }}" %}
-  {% react_prop "firstname" value="{{ request.contact.properties.firstname.value }}" %}
-  {% react_prop "lastname" value="{{ request.contact.properties.lastname.value }}" %}
-  {% react_prop "email" value="{{ request.contact.properties.email.value }}" %}
-  {% react_prop "jobtitle" value="{{ request.contact.properties.jobtitle.value }}" %}
-  {% react_prop "phone" value="{{ request.contact.properties.phone.value }}" %}
-  {% react_prop "company" value="{{ request.contact.properties.company.value }}" %}
-{% end_react_module %}

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import StatusBanner from '../components/StatusBanner';
+import StatusBanner from '../components/ui/StatusBanner';
 
 interface Offer {
   hs_object_id: string;

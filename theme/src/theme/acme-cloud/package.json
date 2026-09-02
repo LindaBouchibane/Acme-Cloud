@@ -1,0 +1,17 @@
+{
+  "name": "acme-cloud",
+  "version": "1.0.0",
+  "description": "Acme Cloud CMS theme",
+  "type": "module",
+  "scripts": {
+    "start": "hs-cms-dev-server .",
+    "deploy": "hs project upload"
+  },
+  "dependencies": {
+    "@hubspot/cms-components": "latest",
+    "react": "^18"
+  },
+  "devDependencies": {
+    "@hubspot/cms-dev-server": "latest"
+  }
+}

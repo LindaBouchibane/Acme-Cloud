@@ -1,0 +1,8 @@
+{
+  "name": "acme-cloud-theme",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@hubspot/cms-components": "^0.14.0"
+  }
+}

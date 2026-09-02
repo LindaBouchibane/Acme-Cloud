@@ -1,0 +1,30 @@
+{% extends '../layouts/base.hubl.html' %}
+{% block body %}
+
+{% if request.contact %}
+  <div class="page-mon-compte">
+    {% module "profile"
+      path="../components/modules/Profile",
+      label="Mon compte",
+      hublParameters={{
+        contactId: request.contact.vid,
+        firstname: request.contact.properties.firstname.value,
+        lastname: request.contact.properties.lastname.value,
+        email: request.contact.properties.email.value,
+        jobtitle: request.contact.properties.jobtitle.value,
+        phone: request.contact.properties.phone.value,
+        company: request.contact.properties.company.value
+      }}
+    %}
+  </div>
+{% else %}
+  <div class="page-mon-compte page-mon-compte--unauthenticated">
+    <div class="container">
+      <h1>Accès réservé</h1>
+      <p>Vous devez être connecté pour accéder à cette page.</p>
+      <a class="btn btn--primary" href="{{ portal_login_url }}">Se connecter</a>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

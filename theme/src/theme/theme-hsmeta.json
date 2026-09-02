@@ -1,0 +1,8 @@
+{
+  "uid": "acme_cloud_theme",
+  "type": "theme",
+  "config": {
+    "themePath": "acme-cloud",
+    "secretNames": []
+  }
+}
