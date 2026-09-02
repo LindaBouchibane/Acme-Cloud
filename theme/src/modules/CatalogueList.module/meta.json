@@ -1,0 +1,14 @@
+{
+  "label": "Catalogue des offres",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Affiche les offres Acme Cloud depuis HubSpot. Les données sont lues via GraphQL.",
+  "host_template_types": ["PAGE"],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": true,
+  "fields": []
+}

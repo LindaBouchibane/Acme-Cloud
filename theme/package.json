@@ -1,0 +1,18 @@
+{
+  "name": "acme-cloud-theme",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "hs project dev",
+    "upload": "hs project upload"
+  },
+  "dependencies": {
+    "@hubspot/cms-components": "^0.14.0"
+  },
+  "devDependencies": {
+    "@hubspot/cli": "^5.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}

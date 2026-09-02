@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ content.html_title }}</title>
+  {{ require_css(get_asset_url('../styles/main.css')) }}
+  {{ standard_header_includes }}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-logo" href="/">Acme Cloud</a>
+      <nav class="site-nav">
+        <a href="/">Accueil</a>
+        <a href="/offres">Nos offres</a>
+        {% if request.contact %}
+          <a href="/mon-compte">Mon compte</a>
+        {% else %}
+          <a href="{{ portal_login_url }}">Connexion</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content_body }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ content.publish_date | strftime('%Y') }} Acme Cloud. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  {{ standard_footer_includes }}
+</body>
+</html>

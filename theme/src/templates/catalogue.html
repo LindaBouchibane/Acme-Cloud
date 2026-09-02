@@ -1,0 +1,11 @@
+{% extends '../layouts/base.html' %}
+{% block body %}
+
+<div class="page-catalogue">
+  {% module "catalogue_list"
+    path="../modules/CatalogueList.module",
+    label="Liste des offres"
+  %}
+</div>
+
+{% endblock %}

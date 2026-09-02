@@ -1,0 +1,14 @@
+{
+  "name": "acme-cloud-serverless",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "upload": "hs project upload"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^11.0.0"
+  },
+  "devDependencies": {
+    "@hubspot/cli": "^5.0.0"
+  }
+}
