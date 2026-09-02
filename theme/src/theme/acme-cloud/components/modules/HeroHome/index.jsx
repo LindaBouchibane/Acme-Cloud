@@ -61,7 +61,7 @@ export const fields = (
     <UrlField
       name="cta_url"
       label="URL du bouton"
-      default={{ href: '/offres', type: 'EXTERNAL', content_id: null }}
+      default={{ href: '/offres-linda', type: 'EXTERNAL', content_id: null }}
     />
   </ModuleFields>
 );

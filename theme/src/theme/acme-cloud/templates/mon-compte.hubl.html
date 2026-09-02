@@ -1,3 +1,8 @@
+<!--
+  templateType: page
+  label: Mon compte
+  isAvailableForNewContent: true
+-->
 {% extends '../layouts/base.hubl.html' %}
 {% block body %}
 
@@ -22,7 +27,7 @@
     <div class="container">
       <h1>Accès réservé</h1>
       <p>Vous devez être connecté pour accéder à cette page.</p>
-      <a class="btn btn--primary" href="{{ portal_login_url }}">Se connecter</a>
+      <a class="btn btn--primary" href="/_hcms/mem/login">Se connecter</a>
     </div>
   </div>
 {% endif %}

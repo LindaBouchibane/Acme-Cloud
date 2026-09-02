@@ -1,3 +1,6 @@
+<!--
+  templateType: none
+-->
 <!doctype html>
 <html lang="fr">
 <head>
@@ -12,19 +15,19 @@
     <div class="container">
       <a class="site-logo" href="/">Acme Cloud</a>
       <nav class="site-nav">
-        <a href="/">Accueil</a>
-        <a href="/offres">Nos offres</a>
+        <a href="/accueil-linda">Accueil</a>
+        <a href="/offres-linda">Nos offres</a>
         {% if request.contact %}
-          <a href="/mon-compte">Mon compte</a>
+          <a href="/mon-compte-linda">Mon compte</a>
         {% else %}
-          <a href="{{ portal_login_url }}">Connexion</a>
+          <a href="/_hcms/mem/login">Connexion</a>
         {% endif %}
       </nav>
     </div>
   </header>
 
   <main>
-    {{ content_body }}
+    {% block body %}{% endblock %}
   </main>
 
   <footer class="site-footer">

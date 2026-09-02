@@ -1,7 +1,14 @@
+<!--
+  templateType: page
+  label: Catalogue des offres
+  isAvailableForNewContent: true
+-->
 {% extends '../layouts/base.hubl.html' %}
 {% block body %}
 
-{# Data is fetched client-side via the CatalogueIsland once the custom object is created #}
+{% set rows = hubdb_table_rows(3659409600) %}
+<script id="acme-catalogue-data" type="application/json">[{% for row in rows %}{"id":"{{ row.hs_id }}","name":"{{ row.name|replace('"', '\\"') }}","description":"{{ row.description|replace('"', '\\"') }}","price":{{ row.price|default(0) }},"category":"{{ row.category|replace('"', '\\"') }}"}{% if not loop.last %},{% endif %}{% endfor %}]</script>
+
 <div class="page-catalogue">
   {% module "catalogue_list"
     path="../components/modules/CatalogueList",

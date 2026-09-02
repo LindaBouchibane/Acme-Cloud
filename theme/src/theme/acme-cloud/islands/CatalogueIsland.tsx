@@ -1,40 +1,56 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import StatusBanner from '../components/ui/StatusBanner';
 
 interface Offer {
-  hs_object_id: string;
+  id: string;
   name: string;
-  description__plain_text_: string;
-  price: string;
+  description: string;
+  price: number | null;
   category: string;
 }
 
-interface Props {
-  initialRecords: Offer[];
-}
+type Status = 'loading' | 'loaded' | 'error';
 
-export default function CatalogueIsland({ initialRecords }: Props) {
+export default function CatalogueIsland() {
+  const [offers, setOffers] = useState<Offer[]>([]);
+  const [status, setStatus] = useState<Status>('loading');
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
+  useEffect(() => {
+    try {
+      const el = document.getElementById('acme-catalogue-data');
+      if (!el?.textContent) throw new Error('no data');
+      const data = JSON.parse(el.textContent);
+      setOffers(Array.isArray(data) ? data : []);
+      setStatus('loaded');
+    } catch {
+      setStatus('error');
+    }
+  }, []);
+
   const categories = useMemo(
-    () => Array.from(new Set(initialRecords.map((r) => r.category).filter(Boolean))),
-    [initialRecords]
+    () => Array.from(new Set(offers.map((r) => r.category).filter(Boolean))),
+    [offers]
   );
 
   const filtered = useMemo(() => {
-    return initialRecords.filter((r) => {
+    return offers.filter((r) => {
       const matchesSearch =
         !search ||
         r.name.toLowerCase().includes(search.toLowerCase()) ||
-        r.description__plain_text_.toLowerCase().includes(search.toLowerCase());
+        r.description.toLowerCase().includes(search.toLowerCase());
       const matchesCategory = !selectedCategory || r.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [initialRecords, search, selectedCategory]);
+  }, [offers, search, selectedCategory]);
 
-  if (!initialRecords) {
+  if (status === 'loading') {
+    return <StatusBanner status="loading" message="Chargement des offres…" />;
+  }
+
+  if (status === 'error') {
     return <StatusBanner status="error" message="Impossible de charger les offres." />;
   }
 
@@ -48,8 +64,8 @@ export default function CatalogueIsland({ initialRecords }: Props) {
         {selectedOffer.category && (
           <span className="catalogue__badge">{selectedOffer.category}</span>
         )}
-        <p className="catalogue__description">{selectedOffer.description__plain_text_}</p>
-        {selectedOffer.price && (
+        <p className="catalogue__description">{selectedOffer.description}</p>
+        {selectedOffer.price !== null && (
           <p className="catalogue__price">À partir de {selectedOffer.price} €/mois</p>
         )}
       </div>
@@ -87,13 +103,15 @@ export default function CatalogueIsland({ initialRecords }: Props) {
       ) : (
         <ul className="catalogue__list">
           {filtered.map((offer) => (
-            <li key={offer.hs_object_id} className="catalogue__card">
+            <li key={offer.id} className="catalogue__card">
               <h3>{offer.name}</h3>
               {offer.category && (
                 <span className="catalogue__badge">{offer.category}</span>
               )}
-              <p>{offer.description__plain_text_}</p>
-              {offer.price && <p className="catalogue__price">{offer.price} €/mois</p>}
+              <p>{offer.description}</p>
+              {offer.price !== null && (
+                <p className="catalogue__price">{offer.price} €/mois</p>
+              )}
               <button
                 className="btn btn--secondary"
                 onClick={() => setSelectedOffer(offer)}

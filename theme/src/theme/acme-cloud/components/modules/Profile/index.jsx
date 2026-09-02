@@ -1,6 +1,6 @@
 import { ModuleFields } from '@hubspot/cms-components/fields';
 import { Island } from '@hubspot/cms-components';
-import ProfileIsland from '../../../islands/ProfileIsland';
+import ProfileIsland from '../../../islands/ProfileIsland?island';
 
 export function Component({ hublParameters }) {
   const { contactId, firstname, lastname, email, jobtitle, phone, company } =

@@ -2,15 +2,14 @@ const hubspot = require('@hubspot/api-client');
 
 const ALLOWED_PROPERTIES = ['firstname', 'lastname', 'jobtitle', 'phone'];
 
-exports.main = async (context, sendResponse) => {
+exports.main = async (context) => {
   const body = context.body ?? {};
 
   if (!body.contactId) {
-    sendResponse({
+    return {
       statusCode: 400,
-      body: { success: false, error: 'Paramètre contactId manquant.' },
-    });
-    return;
+      body: JSON.stringify({ success: false, error: 'Paramètre contactId manquant.' }),
+    };
   }
 
   const { contactId } = body;
@@ -23,11 +22,10 @@ exports.main = async (context, sendResponse) => {
   }
 
   if (Object.keys(properties).length === 0) {
-    sendResponse({
+    return {
       statusCode: 400,
-      body: { success: false, error: 'Aucune propriété valide à mettre à jour.' },
-    });
-    return;
+      body: JSON.stringify({ success: false, error: 'Aucune propriété valide à mettre à jour.' }),
+    };
   }
 
   const client = new hubspot.Client({
@@ -42,23 +40,22 @@ exports.main = async (context, sendResponse) => {
       contact[key] = updated.properties[key] ?? '';
     }
 
-    sendResponse({
+    return {
       statusCode: 200,
-      body: { success: true, contact },
-    });
+      body: JSON.stringify({ success: true, contact }),
+    };
   } catch (err) {
     if (err.code === 404 || err.statusCode === 404) {
-      sendResponse({
+      return {
         statusCode: 404,
-        body: { success: false, error: 'Contact introuvable.' },
-      });
-      return;
+        body: JSON.stringify({ success: false, error: 'Contact introuvable.' }),
+      };
     }
 
     console.error('[updateProfile] Unexpected error:', err.message);
-    sendResponse({
+    return {
       statusCode: 500,
-      body: { success: false, error: 'Erreur interne. Veuillez réessayer.' },
-    });
+      body: JSON.stringify({ success: false, error: 'Erreur interne. Veuillez réessayer.' }),
+    };
   }
 };
